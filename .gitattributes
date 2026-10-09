@@ -1,0 +1,46 @@
+# Windows-only project; keep line endings predictable so .ps1 files (parsed by
+# Windows PowerShell 5.1) and Dart/NSIS sources behave the same regardless of a
+# contributor's core.autocrlf setting.
+* text=auto eol=lf
+
+# Dart, docs and config: always LF.
+*.dart    text eol=lf
+*.yaml    text eol=lf
+*.yml     text eol=lf
+*.md      text eol=lf
+*.json    text eol=lf
+
+# C / C++ from the Flutter Windows runner.
+*.c       text eol=lf
+*.cc      text eol=lf
+*.cpp     text eol=lf
+*.h       text eol=lf
+*.hpp     text eol=lf
+CMakeLists.txt text eol=lf
+*.cmake   text eol=lf
+
+# PowerShell: CRLF.
+*.ps1     text eol=crlf
+
+# Batch files and the make wrapper.
+*.cmd     text eol=crlf
+*.bat     text eol=crlf
+Makefile  text eol=lf
+
+# NSIS installer script — makensis on Windows prefers CRLF.
+*.nsi     text eol=crlf
+*.nsh     text eol=crlf
+
+# Binary assets: never touch, never diff.
+*.exe     binary
+*.dll     binary
+*.lib     binary
+*.ico     binary
+*.png     binary
+*.jpg     binary
+*.bmp     binary
+*.ttf     binary
+
+# The bundled scene renderer is a built artifact from another project; keep it
+# out of language statistics so this repo still reads as a Dart project.
+assets/webwallgl.min.mjs linguist-vendored

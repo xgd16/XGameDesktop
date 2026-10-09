@@ -1,0 +1,96 @@
+# Miscellaneous
+*.class
+*.log
+*.pyc
+*.swp
+.DS_Store
+.atom/
+.build/
+.buildlog/
+.history
+.svn/
+.swiftpm/
+migrate_working_dir/
+
+# IntelliJ related
+*.iml
+*.ipr
+*.iws
+.idea/
+--debug/
+
+# The .vscode folder contains launch configuration and tasks you configure in
+# VS Code which you may wish to be included in version control, so this line
+# is commented out by default.
+#.vscode/
+
+# Flutter/Dart/Pub related
+**/doc/api/
+**/ios/Flutter/.last_build_id
+.dart_tool/
+.flutter-plugins-dependencies
+.pub-cache/
+.pub/
+/build/
+/coverage/
+
+# The generated C++ client wrapper, the engine DLL and the plugin symlinks.
+# `flutter pub get` / `flutter build` recreate all of it.
+/windows/flutter/ephemeral/
+
+# Symbolication related
+app.*.symbols
+
+# Obfuscation related
+app.*.map.json
+
+# Android Studio will place build artifacts here
+/android/app/debug
+/android/app/profile
+/android/app/release
+
+# Widget Preview related
+.widget_preview/
+
+# ---- Packaging output ----
+# `make package` writes the installer and its staging tree here.
+/dist/
+/windows/installer/
+
+# ---- Binary dependencies (not committed) ----
+# hwprobe.dll is the built output of the separate hwprobe project; see
+# "硬件监控后端" in README.md for how to obtain or build it. The .prev-* files
+# are leftovers from swapping it in by hand.
+/native/*.dll
+/native/*.dll.prev-*
+/native/*.lib
+/native/*.pdb
+# The official PawnIO installer is fetched, not vendored — see
+# tool/installer/PawnIO_setup.README for the upstream URL and SHA-256.
+/tool/installer/PawnIO_setup.exe
+# The VC++ redistributable the installer optionally bundles.
+/tool/installer/vc_redist.x64.exe
+
+# ---- Vendored third-party toolchains (not committed) ----
+# The portable GNU make, NSIS and NuGet shim that used to live here are
+# themselves redistributable third-party binaries. Install them yourself —
+# see "前置要求" in README.md — or drop the portable copies back into these
+# paths; tool/package_windows.ps1 only needs tool/nsis/makensis.exe to exist.
+/tool/nsis/
+/tool/make/
+/tool/nuget/nuget.exe
+
+# Local scratch captures.
+/tool/_v4.png
+/tool/_shot.ps1
+
+# ---- Local agent / editor scratch ----
+/.zcode
+/.zcodeignore
+
+# Transient commit-message file used when preparing this repository.
+/.git-commit-msg.tmp
+
+# ---- OS noise ----
+Thumbs.db
+desktop.ini
