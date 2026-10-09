@@ -31,6 +31,11 @@ Makefile  text eol=lf
 *.nsi     text eol=crlf
 *.nsh     text eol=crlf
 
+# Windows resource scripts and application manifests: keep CRLF so the RC
+# compiler and the manifest tool see the same bytes a Visual Studio build makes.
+*.rc      text eol=crlf
+*.manifest text eol=crlf
+
 # Binary assets: never touch, never diff.
 *.exe     binary
 *.dll     binary
