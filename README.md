@@ -7,7 +7,7 @@
 [![Flutter](https://img.shields.io/badge/Flutter-3.44%2B-02569B?logo=flutter&logoColor=white)](https://flutter.dev)
 [![Dart](https://img.shields.io/badge/Dart-%5E3.13.5-0175C2?logo=dart&logoColor=white)](https://dart.dev)
 [![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
-[![Tests](https://img.shields.io/badge/tests-269%20passing-brightgreen)](#测试)
+[![Tests](https://img.shields.io/badge/tests-273%20passing-brightgreen)](#测试)
 
 ---
 
@@ -392,7 +392,7 @@ lib/
 make test        # 等价于 flutter test
 ```
 
-**32 个测试文件、269 个用例**,覆盖 SQLite schema/类型/迁移/旧数据导入、遥测记录器的间隔钳制与
+**32 个测试文件、273 个用例**,覆盖 SQLite schema/类型/迁移/旧数据导入、遥测记录器的间隔钳制与
 可见性闸门与 7 天清理、监控页各档范围与确认流程、壁纸闸门、回环服务器的路由/类型/目录穿越防护/
 WE 材质端点、Wallpaper Engine 发现与工程解析与静态图解析、场景包解析 + LZ4 + 美术抽取、
 Steam ACF 解析与封面选择、开始菜单扫描/分类/固定/排序/搜索、设置持久化、
@@ -451,7 +451,7 @@ PawnIO 安装器是本仓库**不提交**的二进制,取得方式与哈希校�
 
 ```powershell
 make analyze     # 静态检查
-make test        # 269 个用例应当全绿
+make test        # 273 个用例应当全绿
 ```
 
 - 新增设置项请加在 [settings_spec.dart](lib/state/settings_spec.dart) 的目录里 ——
