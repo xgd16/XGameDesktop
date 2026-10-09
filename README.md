@@ -313,6 +313,80 @@ Wallpaper Engine 关着也能用,而且本应用从不依赖它。
 
 ## 架构
 
+### 分层示意
+
+```mermaid
+flowchart TB
+    subgraph runner["Flutter Windows Runner · C++ / Win32"]
+        win["主窗口<br/>窗口句柄经 XGAME_HWND 交给 Dart"]
+        iso["后台 Isolate<br/>应用扫描 · Steam 扫描 · 图标流式回传"]
+    end
+
+    subgraph dart["Dart 应用 lib/"]
+        ui["ui/ 纯控件<br/>导航 · HUD · 图表 · 设置"]
+        state["state/ 六个 ChangeNotifier<br/>settings · hw · telemetry · apps · weather · gamepad"]
+        core["core/ 展示语汇<br/>配色 · 字体 · 动效 · brand"]
+        data["data/ SQLite<br/>xgame.db · metrics.db"]
+        net["net/ 天气 HTTP"]
+        native["native/ 手写 dart:ffi<br/>win32_api · hwprobe_bindings · XInput · icon_extract"]
+    end
+
+    server["WallpaperServer<br/>127.0.0.1 回环 HTTP"]
+    dll["hwprobe.dll"]
+    api["Win32 / 系统 API<br/>kernel32 · user32 · gdi32 · shell32 等"]
+    hw["硬件"]
+    files["数据目录<br/>LOCALAPPDATA 下的 XGameDesktop"]
+
+    runner --> dart
+    dart --> runner
+    core --> ui
+    state --> ui
+    ui --> state
+    state --> data
+    state --> net
+    iso --> data
+    native --> dll
+    native --> api
+    native --> server
+    dll --> hw
+    data --> files
+```
+
+### 运行时数据流
+
+```mermaid
+flowchart LR
+    subgraph src["数据来源"]
+        hw["硬件"]
+        pad["XInput 手柄"]
+        scene["壁纸<br/>web · scene 包 · Wallpaper Engine · 静态图"]
+        wapi["天气 API"]
+    end
+
+    dll["hwprobe.dll"]
+    svc["MetricsProvider<br/>采样 + 落库"]
+    gps["GamepadService<br/>XInput 轮询"]
+    gate["壁纸闸门<br/>全屏 / 省电时暂停"]
+    server["WallpaperServer<br/>127.0.0.1"]
+    hud["HUD 遥测栏 + 天气时钟"]
+    nav["手柄焦点导航"]
+    wp["系统壁纸窗口"]
+    wx["Wallpaper Engine 进程"]
+    mdb[("metrics.db")]
+
+    hw --> dll --> svc
+    svc --> hud
+    svc --> mdb
+    wapi --> hud
+    pad --> gps --> nav
+    scene --> gate
+    gate --> server --> wp
+    scene --> wx
+    gate -.暂停信号.-> server
+```
+
+### 模块布局
+
 ```
 lib/
 ├── core/     展示语汇,不含应用状态:配色/字体/动效/时钟文本/品牌几何
