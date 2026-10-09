@@ -437,7 +437,7 @@ flutter test test/gamepad_test.dart
 | 组件 | 用途 | 许可 |
 | --- | --- | --- |
 | [webwallgl](assets/webwallgl.min.mjs) | 场景壁纸的 WebGL2 渲染器 | MIT,见 [webwallgl.LICENSE](assets/webwallgl.LICENSE) |
-| [Rajdhani](assets/fonts/) | 遥测数字与字标字体 | SIL Open Font License 1.1 |
+| [Rajdhani](assets/fonts/Rajdhani-SemiBold.ttf) | 遥测数字与字标字体 | SIL Open Font License 1.1,见 [assets/fonts/OFL.txt](assets/fonts/OFL.txt) |
 | [PawnIO](https://github.com/namazso/PawnIO) | 内核驱动(温度/功耗/风扇) | GPL-2.0,**附例外**:经设备 IOCTL 通信的独立软件不受感染 |
 | [hwprobe](https://github.com/xgd16/hwprobe) | 硬件遥测 (DLL) | MIT |
 | Flutter / Dart 依赖 | 见 `pubspec.yaml` | 各自的许可,`flutter build` 会把 `NOTICES.Z` 打进产物 |
